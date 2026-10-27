@@ -1,0 +1,1152 @@
+# TRIPLE T HEALTH CENTER — WEBSITE CORRECTIONS & ENHANCEMENT PROMPT
+
+## ROLE
+
+You are a senior full-stack developer, UI/UX designer, healthcare website specialist, and Supabase application architect.
+
+You have already completed the initial website development for **TRIPLE T HEALTH CENTER**.
+
+Your task is to modify, correct, and enhance the existing website based on the instructions below.
+
+IMPORTANT: DO NOT REBUILD THE WEBSITE FROM SCRATCH.
+
+Work directly on the existing project.
+
+Preserve the current branding, website structure, existing pages, working functionality, Supabase integration, and Vercel deployment configuration.
+
+Only make the necessary corrections and enhancements.
+
+The website must now accurately represent a healthcare center operating in **LIBERIA**, not Ghana.
+
+---
+
+# 1. WEBSITE LOCALIZATION — LIBERIA
+
+The health center is located in Liberia.
+
+The website currently contains Ghanaian references that must be corrected.
+
+Review the entire website, including:
+
+- Homepage.
+- About Us.
+- Services.
+- Our Team.
+- Health Insurance.
+- Contact Us.
+- Footer.
+- Appointment forms.
+- Admin dashboard.
+- SEO metadata.
+- Website settings.
+- WhatsApp integration.
+- Any other pages or components.
+
+### Country
+
+Replace all incorrect references to Ghana with Liberia.
+
+Ensure that:
+
+- Liberia is displayed as the country.
+- Telephone numbers use Liberia's international country code, +231.
+- Location information reflects Liberia.
+- Contact forms use Liberia as the default country.
+- Appointment forms use Liberia as the default country.
+- Country labels and address formats are appropriate for Liberia.
+
+Do not leave any Ghanaian country references in the website.
+
+### Location
+
+Use the existing hospital location information as the starting point:
+
+Roberts Field Highway, Duazon Last Turning Point, Liberia.
+
+Ensure the location is displayed consistently.
+
+Do not invent additional addresses, postal codes, coordinates, or landmarks.
+
+If management provides a corrected or more precise Liberian address, make the location editable through the admin dashboard.
+
+### Telephone numbers
+
+The website currently contains telephone numbers with the Ghanaian country code.
+
+Remove the incorrect Ghanaian country code from all public-facing contact information.
+
+Do not invent replacement hospital telephone numbers.
+
+Create editable telephone fields in the admin dashboard so the correct Liberian contact numbers can be added when supplied by management.
+
+Until verified Liberian contact numbers are entered, do not display the old Ghanaian numbers.
+
+### Currency and regional settings
+
+Use Liberia's appropriate regional conventions.
+
+If currency is displayed, use Liberian dollars (LRD) or United States dollars (USD) only where appropriate and verified.
+
+Do not invent service prices.
+
+Do not display Ghanaian currency references.
+
+---
+
+# 2. FOOTER REDESIGN — FIX THE ARRANGEMENT
+
+The attached screenshot shows the current Clinic Contact & Hours section.
+
+The existing footer text is not arranged properly.
+
+The location, telephone numbers, email address, opening hours, and emergency service information appear crowded and inconsistently aligned.
+
+Redesign this section professionally.
+
+IMPORTANT:
+
+Do not simply reduce the font size to make everything fit.
+
+Correct the actual layout.
+
+## Desktop footer layout
+
+Create a clean, structured footer with three distinct sections:
+
+### COLUMN 1 — CONTACT INFORMATION
+
+Heading:
+
+CLINIC CONTACT
+
+Include:
+
+- Location icon.
+- Hospital address.
+- Telephone icon.
+- Verified hospital telephone numbers.
+- Email icon.
+- Hospital email address.
+
+Each item should have consistent alignment.
+
+The icons must be aligned vertically with their respective text.
+
+The address should wrap naturally.
+
+Telephone numbers should appear on separate lines if necessary.
+
+The email address must not overflow its container.
+
+### COLUMN 2 — OPENING HOURS
+
+Heading:
+
+OPENING HOURS
+
+Display:
+
+Monday – Friday
+
+8:30 AM – 4:00 PM
+
+Emergency services available after 4:00 PM.
+
+Saturday
+
+9:00 AM – 2:00 PM
+
+Emergency services available after 2:00 PM.
+
+Sundays & Holidays
+
+Emergency services only.
+
+Use clear spacing between the days.
+
+Use a consistent typography hierarchy.
+
+Highlight emergency service information using the existing teal brand color.
+
+Do not make the opening hours appear crowded.
+
+### COLUMN 3 — QUICK LINKS
+
+Heading:
+
+QUICK LINKS
+
+Include:
+
+- Home.
+- About Us.
+- Our Services.
+- Our Team.
+- Health Insurance.
+- Contact Us.
+- Book an Appointment.
+
+Each link must navigate to its correct page.
+
+Do not create links that lead to nonexistent pages.
+
+## Footer responsive behavior
+
+On desktop:
+
+Use three balanced columns.
+
+On tablet:
+
+Use two columns where appropriate.
+
+On mobile:
+
+Stack the sections vertically.
+
+Ensure:
+
+- No overlapping text.
+- No horizontal scrolling.
+- No clipped telephone numbers.
+- No broken email addresses.
+- No icons floating away from their text.
+- No unnecessary empty spaces.
+- Consistent padding.
+- Consistent spacing.
+- Proper alignment.
+
+The footer should feel like a professionally designed healthcare website.
+
+Use the screenshot as a reference for the content that needs correction, not as a layout that must be copied.
+
+---
+
+# 3. ADMIN PORTAL — WEBSITE MANAGEMENT
+
+I need a functional administrative portal that allows management to edit the website without modifying the source code.
+
+The admin portal is a major requirement.
+
+Do not create a decorative dashboard.
+
+Implement actual content management functionality.
+
+## Admin access
+
+Create a dedicated route:
+
+/admin
+
+Provide a discreet admin dashboard icon in the website footer.
+
+The icon should be clearly identifiable as an administrative access point.
+
+Use a suitable settings, shield, or dashboard icon.
+
+Do not display the admin login button prominently in the public navigation.
+
+## Authentication
+
+Use Supabase Auth for administrator authentication.
+
+Do not hardcode the username or password in frontend source code.
+
+Do not expose credentials in:
+
+- React components.
+- JavaScript files.
+- HTML.
+- Public environment variables.
+- GitHub repositories.
+- Supabase client configuration.
+
+Use secure authentication and role-based access control.
+
+Only authorized administrators should access the admin dashboard.
+
+If the existing project already has Supabase authentication, inspect and reuse it.
+
+Do not replace a working authentication system unnecessarily.
+
+## Admin dashboard interface
+
+Create a professional, simple, and responsive dashboard.
+
+The dashboard should contain the following sections:
+
+### A. Dashboard Overview
+
+Display a simple overview of:
+
+- Total published services.
+- Total published pages.
+- Pending appointment requests.
+- Unread contact messages.
+
+Only display actual database values.
+
+Do not create fake statistics.
+
+### B. Website Pages
+
+Create a page management interface.
+
+The administrator must be able to:
+
+- View existing website pages.
+- Edit page titles.
+- Edit page headings.
+- Edit page descriptions.
+- Edit page content.
+- Update page images.
+- Publish pages.
+- Unpublish pages.
+- Update page SEO titles.
+- Update page meta descriptions.
+
+The administrator should be able to manage the existing pages:
+
+- Home.
+- About Us.
+- Our Services.
+- Our Team.
+- Health Insurance.
+- Contact Us.
+
+Do not create unnecessary additional pages.
+
+### C. Page Content Editor
+
+Create a simple content editor.
+
+Allow management to edit:
+
+- Page title.
+- Section title.
+- Section description.
+- Paragraph text.
+- Images.
+- Image captions.
+- Button text.
+- Button destination.
+- Section visibility.
+
+The administrator should be able to save changes.
+
+Changes must be saved to Supabase.
+
+The public website should display the updated content after saving.
+
+Do not simulate successful updates.
+
+### D. Services Management
+
+Allow the administrator to:
+
+- Add a service.
+- Edit an existing service.
+- Delete a service.
+- Upload service images.
+- Replace service images.
+- Edit service descriptions.
+- Change display order.
+- Publish or unpublish a service.
+
+The existing services must remain available:
+
+- General Medical Care.
+- Surgical Services.
+- Maternity & Child's Health.
+- Laboratory Services.
+- Ultrasound Services.
+- Immunization.
+
+Do not invent additional services.
+
+### E. Image Management
+
+Create a functional image management interface.
+
+Allow the administrator to:
+
+- Upload new images.
+- Replace existing images.
+- Delete images.
+- Preview images.
+- Assign images to website sections.
+- Upload service images.
+- Upload healthcare team photographs.
+- Update the homepage hero image.
+- Manage insurance provider logos.
+
+Use Supabase Storage.
+
+Validate file types and sizes.
+
+Use image previews before saving.
+
+Ensure uploaded images are displayed correctly on the public website.
+
+### F. Healthcare Team Management
+
+Allow management to:
+
+- Add healthcare professionals.
+- Edit profiles.
+- Upload photographs.
+- Update professional titles.
+- Update qualifications.
+- Update biographies.
+- Publish or unpublish profiles.
+
+Do not invent healthcare professionals.
+
+### G. Health Insurance Management
+
+Allow management to:
+
+- Add insurance providers.
+- Upload insurance logos.
+- Edit provider names.
+- Update descriptions.
+- Publish or unpublish providers.
+
+The insurance providers currently listed are:
+
+- Saar.
+- NICOL.
+- Activa.
+
+Retain existing providers until management updates them.
+
+Do not invent new insurance providers.
+
+### H. Contact Information Management
+
+Allow management to edit:
+
+- Hospital name.
+- Address.
+- Telephone numbers.
+- Email address.
+- Opening hours.
+- Emergency service information.
+- WhatsApp contact number.
+- Social media links.
+
+All contact information must be editable through the dashboard.
+
+### I. Appointment Management
+
+Allow administrators to:
+
+- View appointment requests.
+- View patient names.
+- View telephone numbers.
+- View requested services.
+- View preferred appointment dates.
+- View appointment messages.
+- Update request status.
+
+Use the following statuses:
+
+- Pending.
+- Contacted.
+- Confirmed.
+- Cancelled.
+
+Do not automatically confirm appointments.
+
+Appointment confirmation must remain a manual administrative action.
+
+### J. Contact Messages
+
+Allow administrators to:
+
+- View contact messages.
+- Open message details.
+- Mark messages as read.
+- Update message status.
+- Delete messages where appropriate.
+
+Contact messages must not be publicly accessible.
+
+## Admin dashboard security
+
+Implement:
+
+- Supabase authentication.
+- Role-based authorization.
+- Protected routes.
+- Row Level Security.
+- Secure database policies.
+- Secure image uploads.
+- Session handling.
+- Input validation.
+
+The admin dashboard must not be accessible simply because someone knows the URL.
+
+Do not expose patient inquiries or contact messages to unauthorized users.
+
+---
+
+# 4. ADMIN USERNAME AND PASSWORD
+
+I need administrator login credentials when the implementation is completed.
+
+IMPORTANT:
+
+Do not create a permanent hardcoded username and password inside the website source code.
+
+Instead:
+
+1. Implement secure Supabase authentication.
+2. Provide a secure administrator account setup process.
+3. Explain how to create the administrator account.
+4. Explain how to assign administrator permissions.
+5. Explain how to configure the account in Supabase.
+6. Explain how to sign in to /admin.
+7. Explain how to reset the password.
+
+If an initial administrator account is created through a secure setup process, provide the actual account details only after the account has been successfully created and verified.
+
+Do not claim that an account exists if it has not been created.
+
+Do not expose Supabase service role credentials.
+
+Do not store administrator passwords in website content tables.
+
+---
+
+# 5. WHATSAPP FLOATING ICON
+
+Add a professional WhatsApp floating button to the website.
+
+This button should appear on all public-facing pages.
+
+Use this number for every WhatsApp interaction:
+
++231 77 018 3894
+
+WhatsApp international format:
+
+231770183894
+
+## IMPORTANT PRIVACY REQUIREMENT
+
+The WhatsApp telephone number must NOT appear as visible text anywhere on the public website.
+
+Do not display the number in:
+
+- Homepage text.
+- Contact page telephone listings.
+- Footer telephone listings.
+- Appointment confirmation messages.
+- Service descriptions.
+- Admin dashboard public content.
+- Website metadata.
+- Social sharing text.
+
+The number should only be used internally to generate the WhatsApp link.
+
+The public website should display a WhatsApp icon only.
+
+## Floating icon design
+
+Use the official WhatsApp-style icon.
+
+Position:
+
+Bottom-right corner of the screen.
+
+The icon must:
+
+- Remain visible while scrolling.
+- Have a circular background.
+- Use a recognizable WhatsApp icon.
+- Have a subtle shadow.
+- Have a smooth hover effect.
+- Be responsive.
+- Avoid covering important content.
+- Be accessible on mobile.
+
+### Hover behavior
+
+When a visitor hovers over the icon on desktop, display:
+
+"Chat with Us"
+
+Do not display the telephone number.
+
+On mobile, tapping the icon should open WhatsApp directly.
+
+## WhatsApp functionality
+
+Use the following WhatsApp destination:
+
+https://wa.me/231770183894
+
+Open WhatsApp in a new tab or the appropriate mobile application.
+
+Use an optional prefilled message:
+
+"Hello Triple T Health Center. I would like to make an inquiry."
+
+The button must work on all public pages.
+
+Do not create a fake WhatsApp interaction.
+
+---
+
+# 6. HEALTH INSURANCE VISUAL REPRESENTATION
+
+The current Health Insurance section is primarily text-based.
+
+Enhance it with professional visual elements.
+
+Create a dedicated Health Insurance section and page.
+
+Use a clean layout with insurance provider cards.
+
+Each card should contain:
+
+- Provider logo.
+- Provider name.
+- Short description.
+- Inquiry button.
+
+Use the existing providers:
+
+- Saar.
+- NICOL.
+- Activa.
+
+## Insurance visuals
+
+Use the official logos if available.
+
+If official logos are not available:
+
+- Create clean text-based provider representations.
+- Use neutral placeholder logo designs.
+- Allow management to upload the correct logos later.
+
+Do not fabricate official insurance logos.
+
+Do not create fake insurance partnerships.
+
+Do not invent insurance coverage details.
+
+## Health insurance layout
+
+Use a professional healthcare design.
+
+Recommended:
+
+Three provider cards on desktop.
+
+Two cards per row on tablet.
+
+One card per row on mobile.
+
+The cards should have consistent spacing.
+
+Use a white or light background.
+
+Use subtle teal accents.
+
+Add a section heading:
+
+**Health Insurance**
+
+Supporting text:
+
+"We work with selected health insurance providers. Contact Triple T Health Center to confirm your coverage and eligibility."
+
+Button:
+
+Insurance Inquiry.
+
+The button should open the contact form or WhatsApp inquiry.
+
+---
+
+# 7. HEALTHCARE SERVICES — LIBERIAN IMAGERY
+
+Review every image used on the website.
+
+The health center is located in Liberia.
+
+The website must reflect the people and community it serves.
+
+Use authentic, professional healthcare imagery featuring Black African healthcare professionals, patients, mothers, children, and families.
+
+## Images to prioritize
+
+- Black African doctors.
+- Black African nurses.
+- Black African healthcare professionals.
+- Black African mothers and babies.
+- Black African patients receiving medical care.
+- Black African laboratory professionals.
+- Black African healthcare staff.
+- Black African families.
+
+The images should reflect a Liberian or broader West African healthcare environment.
+
+## Important image requirements
+
+Use professional and realistic healthcare photography.
+
+Avoid:
+
+- Images of predominantly non-African healthcare environments.
+- Unrelated hospital branding.
+- Images with visible foreign hospital logos.
+- Images with misleading medical equipment.
+- Images that suggest services not provided by Triple T Health Center.
+- Artificially generated medical scenes with incorrect anatomy.
+- Images that identify stock models as actual hospital staff.
+
+Do not invent doctors or staff identities.
+
+## Existing hero image
+
+Retain the existing enhanced hero image supplied for Triple T Health Center.
+
+Do not unnecessarily replace the existing hero image.
+
+Use it as the primary homepage visual.
+
+Ensure the image is optimized for desktop and mobile.
+
+Preserve the healthcare professional and baby.
+
+## Service imagery
+
+Review the image associated with each service.
+
+Use relevant Black African healthcare imagery for:
+
+General Medical Care.
+
+Surgical Services.
+
+Maternity & Child's Health.
+
+Laboratory Services.
+
+Ultrasound Services.
+
+Immunization.
+
+Use appropriate image proportions.
+
+Maintain consistent card layouts.
+
+If a suitable image is unavailable, use a professional icon rather than a misleading photograph.
+
+Do not invent additional hospital services.
+
+---
+
+# 8. CONTACT PAGE — SOCIAL MEDIA ICONS
+
+Add social media icons to the Contact Us page.
+
+Include:
+
+- Facebook.
+- Instagram.
+- TikTok.
+
+Use recognizable platform icons.
+
+Create a clean social media section.
+
+Heading:
+
+**Connect With Us**
+
+Supporting text:
+
+"Follow Triple T Health Center for updates and information."
+
+## Social media links
+
+The individual social media links will be added later.
+
+Therefore:
+
+1. Create editable social media URL fields in the admin dashboard.
+2. Allow management to add Facebook URL.
+3. Allow management to add Instagram URL.
+4. Allow management to add TikTok URL.
+5. Save these URLs to Supabase.
+6. Display the icons on the Contact Us page.
+
+Until the URLs are provided:
+
+- Display the icons.
+- Do not invent social media URLs.
+- Do not link to unrelated accounts.
+- Do not create fake social media pages.
+
+The icons should be visually consistent.
+
+Use the official recognizable platform icons.
+
+Add accessible labels.
+
+If a URL is missing, the icon should remain non-clickable or display a suitable unavailable state.
+
+Once a URL is added through the admin dashboard, the icon should become clickable.
+
+Open social media links in a new tab.
+
+---
+
+# 9. CONTACT PAGE INFORMATION
+
+Update the Contact Us page to reflect Liberia.
+
+Display the verified location:
+
+Roberts Field Highway, Duazon Last Turning Point, Liberia.
+
+Display the hospital email:
+
+tripplehealth123@gmail.com
+
+Use the verified hospital telephone numbers entered by management.
+
+Do not display Ghanaian telephone numbers.
+
+Do not display the WhatsApp number as visible text.
+
+The WhatsApp number must remain hidden and only be used for the floating WhatsApp button.
+
+Display the existing opening hours.
+
+Monday – Friday:
+
+8:30 AM – 4:00 PM.
+
+Emergency services available after 4:00 PM.
+
+Saturday:
+
+9:00 AM – 2:00 PM.
+
+Emergency services available after 2:00 PM.
+
+Sundays & Holidays:
+
+Emergency services only.
+
+Do not claim the health center operates a fully staffed 24-hour emergency department.
+
+---
+
+# 10. SUPABASE DATABASE UPDATES
+
+Inspect the existing Supabase database.
+
+Do not unnecessarily create duplicate tables.
+
+Reuse existing tables and fields wherever possible.
+
+Ensure the database supports:
+
+- Website content.
+- Pages.
+- Services.
+- Healthcare team.
+- Insurance providers.
+- Contact information.
+- Opening hours.
+- WhatsApp configuration.
+- Social media links.
+- Appointment requests.
+- Contact messages.
+- Image management.
+
+Create or update fields as required.
+
+Ensure the website's contact information can be updated without editing the source code.
+
+## Suggested settings
+
+Store the following in the existing website settings structure:
+
+- Hospital name.
+- Country.
+- Address.
+- Telephone numbers.
+- Email address.
+- Opening hours.
+- WhatsApp destination.
+- Facebook URL.
+- Instagram URL.
+- TikTok URL.
+
+The WhatsApp number must not be displayed publicly as text.
+
+Ensure social media URLs are editable.
+
+## Database security
+
+Maintain appropriate Row Level Security.
+
+Public visitors must not access private appointment requests.
+
+Only authorized administrators should manage website content.
+
+Do not expose service role credentials.
+
+---
+
+# 11. DESIGN AND USER EXPERIENCE
+
+Maintain the existing Triple T Health Center branding.
+
+Use the existing colors:
+
+- Navy blue.
+- Teal.
+- White.
+- Light neutral backgrounds.
+
+Improve the visual quality without changing the identity.
+
+Use:
+
+- Professional typography.
+- Consistent spacing.
+- Responsive layouts.
+- Clean cards.
+- Appropriate icons.
+- Subtle animations.
+- Clear buttons.
+
+Avoid:
+
+- Excessive gradients.
+- Overly decorative sections.
+- Large unnecessary animations.
+- Generic website templates.
+- Crowded layouts.
+- Unnecessary additional pages.
+
+The website must remain simple and professional.
+
+---
+
+# 12. MOBILE RESPONSIVENESS
+
+Review the entire website on mobile.
+
+Pay particular attention to:
+
+- Footer arrangement.
+- Contact information.
+- Opening hours.
+- WhatsApp floating button.
+- Health insurance cards.
+- Service images.
+- Contact page.
+- Social media icons.
+- Admin dashboard.
+
+Ensure:
+
+- No horizontal scrolling.
+- No overlapping text.
+- No broken images.
+- No clipped content.
+- No excessively small text.
+- No buttons outside the screen.
+- No floating WhatsApp icon covering important controls.
+
+The website must load quickly.
+
+Optimize images.
+
+Use responsive image sizes.
+
+Avoid unnecessary dependencies.
+
+---
+
+# 13. VERCEL DEPLOYMENT
+
+The website will be deployed on Vercel.
+
+Preserve the existing deployment configuration.
+
+Review:
+
+- Build configuration.
+- Environment variables.
+- Supabase connection.
+- Routing.
+- Admin authentication.
+- Database queries.
+- Image storage.
+- Social media links.
+- WhatsApp links.
+
+Ensure the project builds successfully.
+
+Do not expose private environment variables.
+
+Do not introduce unnecessary dependencies.
+
+Do not break existing working functionality.
+
+Do not claim deployment has succeeded unless the deployment has actually been completed.
+
+---
+
+# 14. IMPLEMENTATION PROCESS
+
+Before making changes:
+
+1. Inspect the existing project.
+2. Identify the current framework.
+3. Review the website pages.
+4. Review the footer component.
+5. Review the admin dashboard implementation.
+6. Review the Supabase schema.
+7. Review the current contact information.
+8. Review existing image assets.
+9. Identify all Ghana references.
+10. Identify all existing telephone numbers.
+
+Then implement the corrections.
+
+Do not rebuild the entire website.
+
+Do not replace existing components unnecessarily.
+
+Preserve the working project structure.
+
+---
+
+# 15. FINAL TESTING CHECKLIST
+
+Before completing the task, verify the following.
+
+### Website localization
+
+- [ ] All Ghana references have been removed.
+- [ ] Liberia is correctly displayed.
+- [ ] No Ghanaian telephone numbers remain visible.
+- [ ] The address reflects Liberia.
+- [ ] Contact information is editable.
+
+### Footer
+
+- [ ] Contact information is properly arranged.
+- [ ] Telephone numbers are readable.
+- [ ] Email does not overflow.
+- [ ] Opening hours are clearly organized.
+- [ ] Emergency information is readable.
+- [ ] Desktop layout uses balanced columns.
+- [ ] Mobile layout stacks properly.
+
+### Admin portal
+
+- [ ] Admin route works.
+- [ ] Authentication works.
+- [ ] Unauthorized visitors cannot access the dashboard.
+- [ ] Website pages can be edited.
+- [ ] Services can be added and edited.
+- [ ] Images can be uploaded.
+- [ ] Existing images can be replaced.
+- [ ] Contact information can be edited.
+- [ ] Social media URLs can be added.
+- [ ] WhatsApp configuration is available.
+- [ ] Changes save to Supabase.
+- [ ] Public website reflects saved changes.
+
+### WhatsApp
+
+- [ ] Floating WhatsApp icon appears on public pages.
+- [ ] Icon opens the correct WhatsApp destination.
+- [ ] Correct number is used internally.
+- [ ] Number is not displayed as visible text.
+- [ ] Desktop hover displays "Chat with Us".
+- [ ] Mobile tapping opens WhatsApp.
+- [ ] Icon does not obstruct content.
+
+### Health Insurance
+
+- [ ] Saar is displayed.
+- [ ] NICOL is displayed.
+- [ ] Activa is displayed.
+- [ ] Provider visuals are professional.
+- [ ] Official logos are not fabricated.
+- [ ] Insurance information is editable.
+
+### Images
+
+- [ ] Existing hero image is retained.
+- [ ] Services use relevant imagery.
+- [ ] Healthcare professionals and patients are Black African.
+- [ ] No unrelated hospital branding is visible.
+- [ ] Images load correctly on mobile.
+
+### Social Media
+
+- [ ] Facebook icon appears.
+- [ ] Instagram icon appears.
+- [ ] TikTok icon appears.
+- [ ] Links are editable.
+- [ ] No fake URLs are used.
+- [ ] Icons become clickable when valid URLs are entered.
+
+### Deployment
+
+- [ ] Project builds successfully.
+- [ ] No broken imports.
+- [ ] No missing environment variables.
+- [ ] Supabase works.
+- [ ] Admin authentication works.
+- [ ] Forms work.
+- [ ] Website is responsive.
+- [ ] Existing Vercel deployment configuration is preserved.
+
+---
+
+# 16. FINAL DELIVERABLE
+
+Complete the requested corrections directly in the existing Google AI Studio project.
+
+After implementation, provide a concise completion report containing:
+
+1. Changes made to the footer.
+2. Liberia localization changes.
+3. Admin dashboard functionality.
+4. Admin account setup instructions.
+5. WhatsApp integration confirmation.
+6. Health insurance visual improvements.
+7. Healthcare imagery improvements.
+8. Social media integration.
+9. Supabase changes.
+10. Build and deployment status.
+
+For the administrator account:
+
+Provide the actual verified login details only if a secure account has been successfully created.
+
+If account creation requires management action, provide clear setup instructions and explain how to create the administrator account through Supabase.
+
+Do not invent credentials.
+
+Do not claim features are functional unless they have been implemented and tested.
+
+**PRIMARY OBJECTIVE: Correct and enhance the existing Triple T Health Center website, make it accurately reflect Liberia, provide secure website content management, and preserve the foundation for the future Hospital Management System.**
+
+Proceed with the implementation now.

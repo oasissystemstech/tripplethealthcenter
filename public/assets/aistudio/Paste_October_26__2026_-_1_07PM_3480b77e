@@ -1,0 +1,1388 @@
+# MASTER PROMPT: TRIPLE T HEALTH CENTER WEBSITE DEVELOPMENT
+
+## 1. ROLE
+
+You are an expert website developer, UI/UX designer, healthcare digital solutions specialist, and full-stack application architect.
+
+Your task is to design and develop a professional, modern, responsive website for **TRIPLE T HEALTH CENTER**, located in Ghana.
+
+The website must reflect the identity of a healthcare center providing medical services to individuals, families, mothers, and children.
+
+This is not a large hospital website.
+
+Do not create an elaborate hospital platform with unnecessary departments, complex patient portals, extensive medical dashboards, or features that the health center does not currently need.
+
+Instead, build a simple, professional, and functional healthcare website that showcases the health center's services, introduces its healthcare team, provides essential information, and allows patients to submit appointment requests.
+
+The website must be developed using Google AI Studio, with Supabase for database integration and Vercel for deployment.
+
+IMPORTANT PROJECT DIRECTION:
+
+The immediate objective is to establish a professional digital presence for Triple T Health Center.
+
+The long-term objective is to develop a complete Hospital Management System.
+
+Therefore, build the website using a clean, modular, and scalable architecture that can support future expansion without requiring the website to be rebuilt from scratch.
+
+Do not implement the entire Hospital Management System at this stage.
+
+Focus on the website first.
+
+---
+
+# 2. AUDIENCE
+
+The website is designed for:
+
+- Individuals seeking medical care.
+- Parents seeking healthcare for their children.
+- Pregnant women and mothers.
+- Patients seeking laboratory and diagnostic services.
+- People interested in immunization.
+- Existing patients looking for contact information.
+- Prospective patients who want to learn about the health center.
+- People who want to make appointment inquiries.
+
+The primary audience is people in Ghana.
+
+The website must be easy to understand, particularly for visitors accessing it through mobile phones.
+
+Use clear, professional, patient-friendly English.
+
+Avoid complicated medical terminology and unnecessary technical language.
+
+---
+
+# 3. GOAL
+
+Develop a simple but premium-quality website for Triple T Health Center.
+
+The website must:
+
+1. Introduce Triple T Health Center.
+2. Showcase its available medical services.
+3. Present its healthcare team.
+4. Display opening hours.
+5. Provide health insurance information.
+6. Allow visitors to request appointments.
+7. Provide telephone, WhatsApp, email, and location information where applicable.
+8. Allow patients to contact the health center.
+9. Include a simple administrative dashboard for managing website content.
+10. Connect to Supabase.
+11. Be ready for deployment on Vercel.
+12. Establish the foundation for the future Hospital Management System.
+
+The website should make it easy for visitors to answer the following questions:
+
+- What is Triple T Health Center?
+- What services does it provide?
+- Where is it located?
+- When is it open?
+- Which health insurance providers does it accept?
+- How can I book an appointment?
+- How can I contact the health center?
+
+These are the primary questions the website must answer.
+
+---
+
+# 4. DESIGN REFERENCE
+
+Use the following website as inspiration for the design and presentation:
+
+https://www.acibademhealthpoint.com/
+
+Study its general approach to:
+
+- Healthcare website presentation.
+- Professional navigation.
+- Medical service sections.
+- Healthcare imagery.
+- Patient engagement.
+- Homepage organization.
+- Appointment calls to action.
+- Overall visual quality.
+
+Do not copy the website directly.
+
+Create an original design that reflects Triple T Health Center's identity and actual scale of operations.
+
+The final website should feel professional and trustworthy without appearing unnecessarily large or complicated.
+
+---
+
+# 5. HOSPITAL BRANDING
+
+Use the uploaded Triple T Health Center logo and flyer as the primary branding references.
+
+The official name is:
+
+**TRIPLE T HEALTH CENTER**
+
+Use this exact name consistently throughout the website.
+
+The official slogan is:
+
+**Excellence in Healthcare. Compassion in Service.**
+
+Do not replace the hospital name with another name.
+
+Do not use the spelling "Tripple T" in the public-facing website branding.
+
+### Brand colors
+
+Use the existing flyer as the color reference.
+
+Primary Navy Blue: #073B5C
+
+Secondary Blue: #0B5278
+
+Teal: #249A96
+
+White: #FFFFFF
+
+Light Background: #F4F8FB
+
+Dark Text: #172B3A
+
+The colors should complement the existing logo.
+
+Use navy blue for important sections, teal for accents and buttons, and white or light backgrounds for readability.
+
+### Typography
+
+Use a modern, professional font.
+
+Recommended:
+
+- Inter
+- Manrope
+
+Use consistent font weights, spacing, and hierarchy.
+
+Headings should be bold and clear.
+
+Body text should be readable on mobile devices.
+
+### Overall visual direction
+
+The website should be:
+
+- Modern.
+- Clean.
+- Professional.
+- Patient-friendly.
+- Responsive.
+- Visually attractive.
+- Easy to navigate.
+- Fast-loading.
+
+Avoid:
+
+- Generic hospital templates.
+- Excessive animations.
+- Overly complicated layouts.
+- Too many cards.
+- Excessive text.
+- Unnecessary medical dashboards.
+- Fake hospital statistics.
+- Unsupported healthcare claims.
+
+---
+
+# 6. WEBSITE STRUCTURE
+
+Build a MULTI-PAGE website.
+
+Each main navigation item must have its own dedicated page.
+
+Do not build a website where every navigation button only scrolls to a section of the homepage.
+
+Create proper routes.
+
+### Main navigation
+
+1. Home
+2. About Us
+3. Our Services
+4. Our Team
+5. Health Insurance
+6. Contact Us
+
+### Primary action
+
+Book an Appointment
+
+The navigation should be simple and professional.
+
+On desktop, use a clean horizontal navigation bar.
+
+On mobile, use a responsive menu that is easy to open and navigate.
+
+The Book an Appointment button should be visible and easy to access.
+
+Do not add unnecessary navigation items.
+
+---
+
+# 7. HOME PAGE
+
+The homepage must be the most visually attractive page on the website.
+
+It should immediately communicate the health center's identity, services, and commitment to patient care.
+
+## A. Header
+
+Create a professional header containing:
+
+- Triple T Health Center logo.
+- Home.
+- About Us.
+- Our Services.
+- Our Team.
+- Health Insurance.
+- Contact Us.
+- Book an Appointment button.
+
+The header should be responsive.
+
+On mobile, ensure the logo and navigation do not overlap.
+
+## B. Hero section
+
+Use the enhanced, text-free hospital image provided in the project.
+
+The image features:
+
+- A female healthcare professional.
+- A baby.
+- A hospital environment.
+- Medical consultation imagery.
+- Laboratory imagery.
+- Maternal and child healthcare imagery.
+
+Use this image as the primary hero background or hero visual.
+
+IMPORTANT:
+
+The hero image has already been prepared for the website.
+
+Do not recreate the image unnecessarily.
+
+Do not add the original flyer text into the image.
+
+Do not place the image inside a small card.
+
+Use it prominently in the hero section.
+
+The image must be displayed using responsive image techniques.
+
+Ensure the healthcare professional and baby remain visible on desktop and mobile.
+
+Do not crop important subjects.
+
+Use an appropriate image position and responsive layout.
+
+### Hero headline
+
+**Excellence in Healthcare. Compassion in Service.**
+
+### Supporting text
+
+"At Triple T Health Center, we are committed to providing compassionate, accessible, and professional healthcare for individuals and families."
+
+### Primary button
+
+Book an Appointment
+
+### Secondary button
+
+Explore Our Services
+
+### Additional action
+
+Call the Health Center
+
+The hero section must feel welcoming and professional.
+
+Avoid excessive animations.
+
+Do not place too much text over the image.
+
+On desktop, use a balanced layout with the headline and actions positioned alongside the image where appropriate.
+
+On mobile, ensure the headline, image, and buttons remain readable and properly arranged.
+
+## C. Welcome section
+
+Create a short introduction.
+
+Heading:
+
+**Welcome to Triple T Health Center**
+
+Content:
+
+"Triple T Health Center is dedicated to providing compassionate healthcare services to individuals and families. Our focus is on supporting the health and well-being of our patients through professional medical care, diagnostic services, and patient-centered attention."
+
+Button:
+
+Learn More About Us
+
+Keep the introduction concise.
+
+## D. Our Services section
+
+Display the health center's actual services.
+
+Use a clean grid with professional images or appropriate icons.
+
+Each service should contain:
+
+- Service name.
+- Short description.
+- Relevant image or icon.
+- View Details button.
+
+Display the following services:
+
+1. General Medical Care.
+2. Surgical Services.
+3. Maternity & Child's Health.
+4. Laboratory Services.
+5. Ultrasound Services.
+6. Immunization.
+
+Do not invent additional services.
+
+Do not invent specialist departments.
+
+The service descriptions must be editable through the admin dashboard.
+
+## E. Maternity and Child Health section
+
+Create a visually engaging section highlighting maternity and child healthcare.
+
+Use the image of the healthcare professional and baby from the supplied flyer where appropriate.
+
+Heading:
+
+**Care for Mothers and Children**
+
+Supporting text:
+
+"Supporting the health and well-being of mothers, babies, and families through compassionate healthcare services."
+
+Button:
+
+Make an Appointment
+
+Do not invent maternity packages, antenatal schedules, delivery services, or specialist credentials.
+
+Only include confirmed services.
+
+## F. Laboratory Services section
+
+Highlight the health center's laboratory services.
+
+Heading:
+
+**Laboratory Services**
+
+Display:
+
+- Routine Laboratory Services.
+- Chemistry Laboratory.
+
+Supporting text:
+
+"Access laboratory services to support your healthcare needs."
+
+Button:
+
+Laboratory Inquiry
+
+Do not invent laboratory test lists, turnaround times, prices, or diagnostic capabilities.
+
+## G. Ultrasound section
+
+Create a dedicated section for ultrasound services.
+
+Heading:
+
+**Ultrasound Services**
+
+Supporting text:
+
+"Contact Triple T Health Center to make inquiries about available ultrasound services and appointment arrangements."
+
+Button:
+
+Book an Appointment
+
+Do not invent ultrasound specialties or available scanning procedures.
+
+## H. Health Insurance section
+
+Display the health insurance providers advertised by the health center.
+
+- Saar.
+- NICOL.
+- Activa.
+
+Heading:
+
+**Health Insurance**
+
+Supporting text:
+
+"We provide healthcare services for patients with selected health insurance providers. Contact us to confirm your coverage and eligibility."
+
+Button:
+
+Insurance Inquiry
+
+Do not claim that all services are covered by all insurance providers.
+
+## I. Opening hours section
+
+Display the actual opening hours clearly.
+
+Monday – Friday:
+
+8:30 AM – 4:00 PM
+
+Emergency services available after 4:00 PM.
+
+Saturday:
+
+9:00 AM – 2:00 PM
+
+Emergency services available after 2:00 PM.
+
+Sundays and Public Holidays:
+
+Emergency services only.
+
+Use a clean and simple layout.
+
+Do not claim the health center operates a fully staffed 24-hour emergency department.
+
+Do not invent an emergency telephone number.
+
+## J. Contact section
+
+Display:
+
+Telephone:
+
++233 177 667 7688
+
++233 188 642 5903
+
+Email:
+
+tripplehealth123@gmail.com
+
+Location:
+
+Roberts Field Highway,
+
+Duazon Last Turning Point,
+
+Ghana.
+
+Buttons:
+
+Call Us
+
+Send an Inquiry
+
+Get Directions
+
+Use the verified location when configuring Google Maps.
+
+Do not invent coordinates.
+
+## K. Footer
+
+Create a professional footer containing:
+
+- Hospital logo.
+- Triple T Health Center.
+- Official slogan.
+- Quick navigation.
+- Medical services.
+- Telephone numbers.
+- Email.
+- Location.
+- Opening hours.
+- Privacy Policy.
+
+Include a small, discreet administrative dashboard icon.
+
+Do not place a large admin button in the main public navigation.
+
+---
+
+# 8. ABOUT US PAGE
+
+Create a dedicated About Us page.
+
+Keep the page simple.
+
+Include:
+
+- Introduction to Triple T Health Center.
+- Mission.
+- Vision.
+- Core values.
+- Commitment to patients.
+
+### Proposed mission
+
+"To provide accessible, compassionate, and quality healthcare services that promote the health and well-being of individuals and families."
+
+### Proposed vision
+
+"To become a trusted healthcare center recognized for professional excellence, compassionate care, and continuous improvement."
+
+### Core values
+
+- Compassion.
+- Professionalism.
+- Integrity.
+- Respect.
+- Excellence.
+- Patient safety.
+
+These are proposed website statements.
+
+Make them editable through the admin dashboard.
+
+Do not present them as formally approved hospital policies.
+
+Do not invent the history of the health center.
+
+If management has not supplied an official history, use a short introduction instead.
+
+---
+
+# 9. OUR SERVICES PAGE
+
+Create a dedicated Medical Services page.
+
+This page must showcase the health center's services in a professional and organized manner.
+
+Use appropriate images, icons, and descriptions.
+
+### General Medical Care
+
+Provide a short description of general medical care.
+
+Do not invent specialist services.
+
+### Surgical Services
+
+Display Surgical Services as listed on the hospital flyer.
+
+Do not invent surgical procedures or surgical specialties.
+
+### Maternity & Child's Health
+
+Create a dedicated section for maternal and child healthcare.
+
+Use patient-friendly language.
+
+### Laboratory Services
+
+Display:
+
+- Routine Laboratory Services.
+- Chemistry Laboratory.
+
+### Ultrasound Services
+
+Display the available ultrasound service as advertised.
+
+Do not invent scanning categories.
+
+### Immunization
+
+Create a dedicated immunization section.
+
+Do not invent vaccination schedules, prices, or specific vaccine availability.
+
+### Service inquiry
+
+Each service should have a button:
+
+Book an Appointment
+
+The button should open the appointment form with the selected service prefilled.
+
+For example:
+
+If a visitor clicks General Medical Care, the appointment form should automatically select General Medical Care.
+
+The visitor must still be able to change the selected service.
+
+Do not create separate complicated booking systems for every service.
+
+Use one appointment inquiry system.
+
+---
+
+# 10. OUR TEAM PAGE
+
+Create a simple and professional Our Team page.
+
+The page should introduce the health center's healthcare professionals.
+
+Initially, display verified staff information supplied by management.
+
+The website must support:
+
+- Healthcare professional name.
+- Photograph.
+- Professional title.
+- Department or service.
+- Qualifications.
+- Short biography.
+
+Do not invent doctors.
+
+Do not invent nurses.
+
+Do not invent qualifications.
+
+Do not use stock photographs and identify the people in them as actual Triple T staff.
+
+If actual staff information has not been provided, display:
+
+"Our healthcare team information will be updated shortly."
+
+Create a reusable staff profile structure for future updates.
+
+---
+
+# 11. HEALTH INSURANCE PAGE
+
+Create a simple Health Insurance page.
+
+Display:
+
+- Saar.
+- NICOL.
+- Activa.
+
+Include a short explanation that patients should contact the health center to confirm coverage.
+
+Add:
+
+Insurance Inquiry
+
+The button should open the contact form or WhatsApp inquiry.
+
+Do not invent insurance coverage details.
+
+Do not claim that all treatments are covered.
+
+Make insurance information editable through the admin dashboard.
+
+---
+
+# 12. APPOINTMENT BOOKING
+
+This is one of the most important features of the website.
+
+Create a simple appointment inquiry system.
+
+Do not build a complicated hospital scheduling system.
+
+The purpose is to allow patients to request appointments and enable the health center to contact them.
+
+## Appointment form
+
+Create a professional appointment form containing:
+
+### Required fields
+
+- Full name.
+- Telephone number.
+- Preferred service.
+- Preferred appointment date.
+
+### Optional fields
+
+- Email address.
+- Preferred appointment time.
+- Additional message.
+
+Do not request unnecessary medical information.
+
+Do not request sensitive medical records.
+
+### Form functionality
+
+When a patient submits the form:
+
+1. Validate the form.
+2. Check that required fields are completed.
+3. Save the appointment request to Supabase.
+4. Display a confirmation message.
+5. Make the inquiry available in the admin dashboard.
+6. Provide an optional WhatsApp contact action.
+
+### Confirmation message
+
+"Thank you for contacting Triple T Health Center. Your appointment request has been received. Our team will contact you to confirm availability."
+
+IMPORTANT:
+
+This is an appointment REQUEST.
+
+Do not automatically confirm the appointment.
+
+Do not display a confirmed appointment date unless the health center has actually approved it.
+
+Do not simulate successful database submissions.
+
+Only display success after the request has actually been saved.
+
+Prevent duplicate submissions.
+
+Use a loading state while the request is being processed.
+
+---
+
+# 13. WHATSAPP INTEGRATION
+
+Integrate WhatsApp as a convenient communication channel.
+
+Use the verified hospital telephone numbers supplied by management.
+
+Do not invent a WhatsApp number.
+
+The WhatsApp button should:
+
+1. Open WhatsApp.
+2. Direct the visitor to the verified hospital contact.
+3. Include a short, professional inquiry message where appropriate.
+
+Example:
+
+"Hello Triple T Health Center. I would like to make an appointment. Please assist me."
+
+If the hospital's WhatsApp-enabled number has not been confirmed, leave the WhatsApp configuration editable and clearly mark it as requiring verification.
+
+Do not assume every telephone number supports WhatsApp.
+
+---
+
+# 14. CONTACT PAGE
+
+Create a dedicated Contact Us page.
+
+Display:
+
+### Telephone
+
++233 177 667 7688
+
++233 188 642 5903
+
+### Email
+
+tripplehealth123@gmail.com
+
+### Location
+
+Roberts Field Highway,
+
+Duazon Last Turning Point,
+
+Ghana.
+
+### Opening hours
+
+Monday – Friday:
+
+8:30 AM – 4:00 PM
+
+Saturday:
+
+9:00 AM – 2:00 PM
+
+Sundays and Public Holidays:
+
+Emergency services only.
+
+### Contact form
+
+Fields:
+
+- Full name.
+- Telephone number.
+- Email address.
+- Subject.
+- Message.
+
+The form must:
+
+- Validate inputs.
+- Save messages to Supabase.
+- Prevent duplicate submissions.
+- Display a confirmation.
+- Protect submitted information.
+
+Do not expose contact messages publicly.
+
+---
+
+# 15. ADMIN DASHBOARD
+
+Create a simple administrative dashboard.
+
+Route:
+
+/admin
+
+The admin dashboard is intended for the health center's management.
+
+It should be accessible through a small administrative icon in the website footer.
+
+Use a professional settings or shield icon.
+
+The icon should not interfere with the public website navigation.
+
+## Authentication
+
+Use Supabase Auth.
+
+Do not hardcode an administrator password.
+
+Do not place credentials in frontend code.
+
+Do not expose authentication secrets.
+
+Configure administrator access securely.
+
+Use role-based authorization.
+
+Only authorized administrators should access the dashboard.
+
+## Dashboard features
+
+The administrator should be able to manage:
+
+1. Homepage content.
+2. About Us information.
+3. Medical services.
+4. Healthcare team profiles.
+5. Insurance providers.
+6. Opening hours.
+7. Telephone numbers.
+8. Email address.
+9. Hospital location.
+10. Appointment inquiries.
+11. Contact messages.
+12. Website images.
+
+## Content management
+
+Allow the administrator to:
+
+- Edit text.
+- Add services.
+- Edit services.
+- Upload images.
+- Replace images.
+- Delete content.
+- Update opening hours.
+- Update contact details.
+- Update insurance providers.
+- View appointment requests.
+- View contact messages.
+
+All changes must save to Supabase.
+
+The public website should display updated information after successful saving.
+
+Do not create dashboard buttons that do nothing.
+
+Do not simulate successful saving.
+
+---
+
+# 16. SUPABASE DATABASE
+
+We are using Supabase.
+
+Use Supabase for:
+
+- Database.
+- Authentication.
+- Website content.
+- Medical services.
+- Healthcare team information.
+- Insurance providers.
+- Appointment inquiries.
+- Contact messages.
+- Image storage.
+
+Create a simple database structure.
+
+### website_settings
+
+Fields:
+
+- id.
+- hospital_name.
+- slogan.
+- telephone_numbers.
+- email.
+- location.
+- opening_hours.
+- updated_at.
+
+### medical_services
+
+Fields:
+
+- id.
+- service_name.
+- description.
+- image_url.
+- display_order.
+- published.
+- created_at.
+- updated_at.
+
+### healthcare_team
+
+Fields:
+
+- id.
+- name.
+- professional_title.
+- department.
+- qualifications.
+- biography.
+- image_url.
+- published.
+- display_order.
+
+### insurance_providers
+
+Fields:
+
+- id.
+- provider_name.
+- description.
+- logo_url.
+- published.
+
+### appointment_requests
+
+Fields:
+
+- id.
+- patient_name.
+- telephone.
+- email.
+- preferred_service.
+- preferred_date.
+- preferred_time.
+- message.
+- status.
+- created_at.
+
+### contact_messages
+
+Fields:
+
+- id.
+- name.
+- telephone.
+- email.
+- subject.
+- message.
+- status.
+- created_at.
+
+### website_content
+
+Fields:
+
+- id.
+- page.
+- section.
+- heading.
+- body.
+- image_url.
+- published.
+- updated_at.
+
+Use appropriate database constraints.
+
+Use timestamps.
+
+Use secure access policies.
+
+## Supabase security
+
+Implement:
+
+- Row Level Security.
+- Appropriate database policies.
+- Secure authentication.
+- Role-based authorization.
+- Input validation.
+- Protected administrative access.
+
+Public visitors should only access information intended for public display.
+
+Appointment requests and contact messages must not be publicly readable.
+
+Only authorized administrators should access submitted inquiries.
+
+Do not expose the Supabase service role key in frontend code.
+
+Use environment variables.
+
+Do not store patient medical records in the public website database.
+
+---
+
+# 17. IMAGE STORAGE
+
+Use Supabase Storage for website images.
+
+The administrator should be able to upload:
+
+- Medical service images.
+- Healthcare team photographs.
+- Homepage images.
+- Health center announcements.
+- Insurance logos.
+
+Implement secure image uploads.
+
+Validate:
+
+- File type.
+- File size.
+- Upload permissions.
+
+Optimize images for website performance.
+
+Do not store large image files directly in database fields.
+
+Store image URLs or storage paths.
+
+Use the supplied hero image as the initial homepage image.
+
+---
+
+# 18. FUTURE HOSPITAL MANAGEMENT SYSTEM
+
+The long-term objective is to develop a Hospital Management System for Triple T Health Center.
+
+However, this website is only the first phase.
+
+Do not build a full HMS now.
+
+Prepare the website architecture for future modules such as:
+
+- Patient registration.
+- Patient identification.
+- Appointment management.
+- Electronic medical records.
+- Consultation management.
+- Laboratory management.
+- Pharmacy management.
+- Billing.
+- Insurance claims.
+- Inventory.
+- Staff management.
+- Management reporting.
+
+These features must not appear as fully functional systems on the current public website.
+
+Do not create unnecessary patient portals.
+
+Do not create fake medical records.
+
+Do not introduce complicated workflows that the health center does not currently use.
+
+Keep the initial website lightweight and focused.
+
+The future HMS should be developed as a separate, properly secured application or module connected to the appropriate backend.
+
+---
+
+# 19. TECHNICAL REQUIREMENTS
+
+We are using Google AI Studio to develop the website.
+
+Backend:
+
+Supabase.
+
+Database:
+
+Supabase PostgreSQL.
+
+Authentication:
+
+Supabase Auth.
+
+Image storage:
+
+Supabase Storage.
+
+Deployment:
+
+Vercel.
+
+Use the existing project framework.
+
+Before modifying the project:
+
+1. Inspect the existing code.
+2. Identify the current framework.
+3. Review existing components.
+4. Review current routes.
+5. Check existing Supabase integration.
+6. Preserve working functionality.
+
+Use reusable components.
+
+Use proper routing.
+
+Use environment variables.
+
+Avoid unnecessary dependencies.
+
+Keep the code modular.
+
+Do not unnecessarily replace the existing project structure.
+
+---
+
+# 20. VERCEL DEPLOYMENT
+
+The website will be deployed on Vercel.
+
+Prepare the application for production deployment.
+
+Ensure:
+
+- Correct build configuration.
+- Correct routing.
+- Appropriate environment variables.
+- Supabase integration.
+- No hardcoded credentials.
+- No missing dependencies.
+- No broken imports.
+- No deployment-specific errors.
+
+Use the correct environment variables for the existing framework.
+
+For a Vite-based project, use:
+
+VITE_SUPABASE_URL
+
+VITE_SUPABASE_ANON_KEY
+
+Never expose the Supabase service role key in frontend code.
+
+Ensure the website builds successfully.
+
+Test the production build before considering development complete.
+
+Do not claim that deployment has succeeded unless the application has actually been deployed.
+
+---
+
+# 21. MOBILE RESPONSIVENESS
+
+The website must work properly on:
+
+- Desktop.
+- Laptop.
+- Tablet.
+- Mobile phones.
+
+Mobile performance is especially important.
+
+Ensure:
+
+- Fast loading.
+- Responsive images.
+- Readable text.
+- Proper button sizes.
+- Mobile navigation.
+- No horizontal scrolling.
+- No overlapping sections.
+- No broken images.
+- No excessive animations.
+
+The website must be intentionally designed for mobile.
+
+Do not simply shrink the desktop layout.
+
+Ensure the appointment form is easy to complete on a phone.
+
+---
+
+# 22. SEO AND SOCIAL SHARING
+
+Implement:
+
+- Page titles.
+- Meta descriptions.
+- Open Graph metadata.
+- Favicon.
+- Sitemap.
+- Robots configuration.
+- Optimized images.
+- Clean URLs.
+
+Use the official name:
+
+Triple T Health Center.
+
+Prepare the website for sharing on:
+
+- WhatsApp.
+- Facebook.
+- Other social media platforms.
+
+Use the hospital logo for the website favicon.
+
+Create an appropriate social sharing preview.
+
+Do not invent social media URLs.
+
+---
+
+# 23. DEVELOPMENT PRIORITIES
+
+Develop the website in the following order.
+
+### PHASE 1: PUBLIC WEBSITE
+
+Build:
+
+- Home.
+- About Us.
+- Our Services.
+- Our Team.
+- Health Insurance.
+- Contact Us.
+- Appointment Inquiry.
+
+Focus on design, navigation, mobile responsiveness, and accurate information.
+
+### PHASE 2: SUPABASE
+
+Implement:
+
+- Website content storage.
+- Services management.
+- Appointment inquiries.
+- Contact messages.
+- Image storage.
+
+### PHASE 3: ADMIN DASHBOARD
+
+Implement:
+
+- Secure login.
+- Website content management.
+- Service management.
+- Image uploads.
+- Appointment inquiry management.
+- Contact message management.
+
+### PHASE 4: DEPLOYMENT
+
+Prepare the website for Vercel.
+
+Test:
+
+- Navigation.
+- Forms.
+- Database submissions.
+- Image loading.
+- Mobile responsiveness.
+- Build configuration.
+
+### PHASE 5: FUTURE HMS
+
+Keep the architecture ready for future development.
+
+Do not implement the full Hospital Management System during this website phase.
+
+---
+
+# 24. FINAL EXPECTATION
+
+Deliver a complete, professional, multi-page website for Triple T Health Center.
+
+The website must include:
+
+- Home.
+- About Us.
+- Our Services.
+- Our Team.
+- Health Insurance.
+- Contact Us.
+- Appointment Inquiry.
+- Secure Admin Dashboard.
+
+The website must:
+
+- Use the hospital's actual branding.
+- Use the supplied flyer information.
+- Use the prepared hero image.
+- Reflect the health center's actual services.
+- Be simple and professional.
+- Be mobile responsive.
+- Connect to Supabase.
+- Support content management.
+- Support image uploads.
+- Be compatible with Vercel.
+- Be prepared for future HMS development.
+
+Do not build an elaborate hospital website.
+
+Do not invent hospital departments.
+
+Do not invent doctors or qualifications.
+
+Do not invent medical services.
+
+Do not invent insurance coverage.
+
+Do not invent emergency contact numbers.
+
+Do not hardcode administrator passwords.
+
+Do not expose sensitive information.
+
+Do not create fake appointment confirmations.
+
+Do not simulate database operations.
+
+Do not create decorative buttons that do nothing.
+
+Preserve existing working functionality.
+
+**The immediate goal is to build a simple, professional website that showcases Triple T Health Center and makes it easy for patients to contact the health center and request appointments.**
+
+**The long-term goal is to use this website as the foundation for a complete Hospital Management System.**
+
+Build the website accordingly.

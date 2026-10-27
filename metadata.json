@@ -1,0 +1,6 @@
+{
+  "name": "Triple T Health Center",
+  "description": "Excellence in Healthcare. Compassion in Service. Dedicated medical, maternity, surgical, lab, and child health care in Liberia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

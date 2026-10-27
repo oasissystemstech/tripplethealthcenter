@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  }
+}
+
+:root {
+  --color-primary: #073B5C;
+  --color-secondary: #0B5278;
+  --color-teal: #249A96;
+  --color-bg-light: #F4F8FB;
+  --color-dark: #172B3A;
+}
