@@ -142,7 +142,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 {/* Decorative border frame */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 bg-slate-900">
                   <img
-                    src={settings.hero_image_url || "/assets/aistudio/Caring_Hands_in_a_Modern_Hospital_Ward_ebeb8456.png"}
+                    src={homePage?.image_url || settings.hero_image_url || "/assets/aistudio/Caring_Hands_in_a_Modern_Hospital_Ward_ebeb8456.png"}
                     alt="Tripple-T Health Center medical care professional and baby"
                     className="w-full h-auto object-cover max-h-[500px] object-top"
                     loading="eager"

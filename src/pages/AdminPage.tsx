@@ -159,6 +159,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({
   const [syncResult, setSyncResult] = useState<string | null>(null);
   const [copiedVercelUrl, setCopiedVercelUrl] = useState(false);
   const [copiedVercelKey, setCopiedVercelKey] = useState(false);
+  const [copiedConfirmSql, setCopiedConfirmSql] = useState(false);
 
   // Live Supabase Auth session state
   const [supabaseAuthStatus, setSupabaseAuthStatus] = useState<{ authenticated: boolean; email?: string }>({ authenticated: false });
@@ -278,7 +279,14 @@ export const AdminPage: React.FC<AdminPageProps> = ({
   const handleSaveSettings = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaveStatus(null);
-    await ensureAdminSupabaseSession();
+    const authCheck = await ensureAdminSupabaseSession();
+    if (!authCheck.success) {
+      setSaveStatus({
+        message: `Database sync blocked: ${authCheck.error}`,
+        isError: true
+      });
+      return;
+    }
     const res = await updateWebsiteSettings(settingsForm);
     if (res.success) {
       onUpdateSettings(settingsForm);
@@ -300,7 +308,14 @@ export const AdminPage: React.FC<AdminPageProps> = ({
     setSaveStatus(null);
 
     // Verify and establish Supabase Auth session so RLS policy passes
-    await ensureAdminSupabaseSession();
+    const authCheck = await ensureAdminSupabaseSession();
+    if (!authCheck.success) {
+      setSaveStatus({
+        message: `Database sync blocked: ${authCheck.error}`,
+        isError: true
+      });
+      return;
+    }
 
     // Use targeted savePage operation
     const res = await savePage(editingPage);
@@ -313,7 +328,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({
       setTimeout(() => setSaveStatus(null), 4000);
     } else {
       setSaveStatus({
-        message: `Failed to save page to Supabase: ${res.error}. If your database RLS policies have not been updated, execute the RLS Fix SQL in the Setup tab.`,
+        message: `Failed to save page to Supabase: ${res.error}`,
         isError: true
       });
     }
@@ -337,7 +352,14 @@ export const AdminPage: React.FC<AdminPageProps> = ({
       updated_at: new Date().toISOString()
     };
 
-    await ensureAdminSupabaseSession();
+    const authCheck = await ensureAdminSupabaseSession();
+    if (!authCheck.success) {
+      setSaveStatus({
+        message: `Database sync blocked: ${authCheck.error}`,
+        isError: true
+      });
+      return;
+    }
     const res = await createPage(pageObj);
     if (res.success) {
       const updated = [...pagesList, pageObj];
@@ -365,7 +387,14 @@ export const AdminPage: React.FC<AdminPageProps> = ({
   const handleDeletePage = async (id: string) => {
     if (window.confirm(`Are you sure you want to delete page "/${id}"?`)) {
       setSaveStatus(null);
-      await ensureAdminSupabaseSession();
+      const authCheck = await ensureAdminSupabaseSession();
+      if (!authCheck.success) {
+        setSaveStatus({
+          message: `Database sync blocked: ${authCheck.error}`,
+          isError: true
+        });
+        return;
+      }
       const res = await deletePage(id);
       if (res.success) {
         const updated = pagesList.filter(p => p.id !== id);
@@ -407,6 +436,15 @@ export const AdminPage: React.FC<AdminPageProps> = ({
 
   // Service toggle & save
   const handleToggleService = async (id: string) => {
+    setSaveStatus(null);
+    const authCheck = await ensureAdminSupabaseSession();
+    if (!authCheck.success) {
+      setSaveStatus({
+        message: `Database sync blocked: ${authCheck.error}`,
+        isError: true
+      });
+      return;
+    }
     const updated = servicesList.map(s => s.id === id ? { ...s, published: !s.published } : s);
     const res = await saveMedicalServices(updated);
     if (res.success) {
@@ -422,6 +460,15 @@ export const AdminPage: React.FC<AdminPageProps> = ({
   const handleSaveEditedService = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingService) return;
+    setSaveStatus(null);
+    const authCheck = await ensureAdminSupabaseSession();
+    if (!authCheck.success) {
+      setSaveStatus({
+        message: `Database sync blocked: ${authCheck.error}`,
+        isError: true
+      });
+      return;
+    }
     const updated = servicesList.map(s => s.id === editingService.id ? editingService : s);
     const res = await saveMedicalServices(updated);
     if (res.success) {
@@ -437,6 +484,15 @@ export const AdminPage: React.FC<AdminPageProps> = ({
 
   const handleDeleteService = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this service?')) {
+      setSaveStatus(null);
+      const authCheck = await ensureAdminSupabaseSession();
+      if (!authCheck.success) {
+        setSaveStatus({
+          message: `Database sync blocked: ${authCheck.error}`,
+          isError: true
+        });
+        return;
+      }
       const res = await deleteMedicalService(id);
       if (res.success) {
         const updated = servicesList.filter(s => s.id !== id);
@@ -494,6 +550,15 @@ export const AdminPage: React.FC<AdminPageProps> = ({
   const handleAddStaff = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newStaff.name || !newStaff.professional_title) return;
+    setSaveStatus(null);
+    const authCheck = await ensureAdminSupabaseSession();
+    if (!authCheck.success) {
+      setSaveStatus({
+        message: `Database sync blocked: ${authCheck.error}`,
+        isError: true
+      });
+      return;
+    }
 
     const member: HealthcareStaff = {
       id: `staff_${Date.now()}`,
@@ -532,6 +597,15 @@ export const AdminPage: React.FC<AdminPageProps> = ({
 
   const handleDeleteStaff = async (id: string) => {
     if (window.confirm('Delete this staff profile?')) {
+      setSaveStatus(null);
+      const authCheck = await ensureAdminSupabaseSession();
+      if (!authCheck.success) {
+        setSaveStatus({
+          message: `Database sync blocked: ${authCheck.error}`,
+          isError: true
+        });
+        return;
+      }
       const res = await deleteHealthcareStaff(id);
       if (res.success) {
         const updated = staffList.filter(s => s.id !== id);
@@ -549,6 +623,15 @@ export const AdminPage: React.FC<AdminPageProps> = ({
   const handleAddInsurance = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newInsurance.provider_name) return;
+    setSaveStatus(null);
+    const authCheck = await ensureAdminSupabaseSession();
+    if (!authCheck.success) {
+      setSaveStatus({
+        message: `Database sync blocked: ${authCheck.error}`,
+        isError: true
+      });
+      return;
+    }
 
     const prov: InsuranceProvider = {
       id: `ins_${Date.now()}`,
@@ -581,6 +664,15 @@ export const AdminPage: React.FC<AdminPageProps> = ({
 
   const handleDeleteInsurance = async (id: string) => {
     if (window.confirm('Delete this insurance partner?')) {
+      setSaveStatus(null);
+      const authCheck = await ensureAdminSupabaseSession();
+      if (!authCheck.success) {
+        setSaveStatus({
+          message: `Database sync blocked: ${authCheck.error}`,
+          isError: true
+        });
+        return;
+      }
       const res = await deleteInsuranceProvider(id);
       if (res.success) {
         const updated = insuranceList.filter(i => i.id !== id);
@@ -749,6 +841,37 @@ export const AdminPage: React.FC<AdminPageProps> = ({
           </button>
         </div>
       </div>
+
+      {!supabaseAuthStatus.authenticated && (
+        <div className="p-4 rounded-xl border border-amber-300 bg-amber-50 text-amber-900 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+          <div className="flex items-start sm:items-center gap-2.5">
+            <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5 sm:mt-0" />
+            <div>
+              <p className="font-bold text-amber-950">
+                Live Supabase Session Offline / Email Unconfirmed
+              </p>
+              <p className="text-amber-800 text-[11px] mt-0.5">
+                Changes made here will not appear on the live website until your admin account (<code>tripplethospital@gmail.com</code>) is confirmed in Supabase Auth and authenticated.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={handleConnectAuth}
+              disabled={connectingAuth}
+              className="px-3.5 py-1.5 bg-[#073B5C] hover:bg-[#0B5278] text-white rounded-lg font-semibold text-xs transition-colors cursor-pointer disabled:opacity-50"
+            >
+              {connectingAuth ? 'Connecting...' : 'Connect Live Session'}
+            </button>
+            <button
+              onClick={() => setActiveTab('setup')}
+              className="px-3 py-1.5 bg-amber-200/80 hover:bg-amber-200 text-amber-900 rounded-lg font-semibold text-xs transition-colors cursor-pointer"
+            >
+              Fix in 1-Click
+            </button>
+          </div>
+        </div>
+      )}
 
       {saveStatus && (
         <div className={`p-4 rounded-xl border flex items-center justify-between gap-3 text-xs font-semibold shadow-xs ${
@@ -2282,6 +2405,33 @@ export const AdminPage: React.FC<AdminPageProps> = ({
                 <li>Navigate to <strong>Authentication</strong> → <strong>Users</strong> in the left menu.</li>
                 <li>If not already present, click <strong>Add User</strong> → <strong>Create User</strong>, enter <code className="bg-white px-1.5 py-0.5 rounded border">tripplethospital@gmail.com</code> and <code className="bg-white px-1.5 py-0.5 rounded border">Tripplet123!</code> with <strong>Auto Confirm User</strong> checked.</li>
               </ol>
+
+              {/* Instant 1-Click Email Confirmation SQL */}
+              <div className="mt-3 p-3 bg-amber-50/80 rounded-lg border border-amber-200 space-y-2">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs font-bold text-amber-900 flex items-center gap-1.5">
+                    <AlertCircle className="w-4 h-4 text-amber-600" />
+                    <span>Instant Admin Confirmation Query (Fixes Sync Immediately)</span>
+                  </span>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText("UPDATE auth.users SET email_confirmed_at = now() WHERE email in ('tripplethospital@gmail.com', 'admin@tripplet.com');");
+                      setCopiedConfirmSql(true);
+                      setTimeout(() => setCopiedConfirmSql(false), 2000);
+                    }}
+                    className="inline-flex items-center gap-1 bg-amber-600 hover:bg-amber-700 text-white px-2.5 py-1 rounded text-xs font-semibold cursor-pointer transition-colors"
+                  >
+                    <Copy className="w-3 h-3" />
+                    <span>{copiedConfirmSql ? 'Copied Query!' : 'Copy SQL'}</span>
+                  </button>
+                </div>
+                <p className="text-[11px] text-amber-800 leading-relaxed">
+                  If Supabase returns <em>"Email not confirmed"</em>, copy this 1-line command, paste it in <strong>SQL Editor</strong>, and click <strong>Run</strong>. It instantly marks the admin confirmed so edits save directly to the live website.
+                </p>
+                <code className="block p-2 bg-white rounded border border-amber-200 text-amber-950 font-mono text-[11px] overflow-x-auto">
+                  UPDATE auth.users SET email_confirmed_at = now() WHERE email in ('tripplethospital@gmail.com', 'admin@tripplet.com');
+                </code>
+              </div>
             </div>
 
             {/* Step 2: Running SQL Schema */}

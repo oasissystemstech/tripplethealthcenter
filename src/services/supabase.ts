@@ -149,12 +149,20 @@ export async function updateWebsiteSettings(settings: WebsiteSettings): Promise<
 
   if (supabase) {
     try {
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('website_settings')
-        .upsert(updated, { onConflict: 'id' });
+        .upsert(updated, { onConflict: 'id' })
+        .select();
+
       if (error) {
         console.error('Supabase settings update notice:', error.message);
         return { success: false, error: error.message };
+      }
+      if (!data || data.length === 0) {
+        return {
+          success: false,
+          error: 'Supabase Row-Level Security policy blocked updating settings (0 rows modified). Your Supabase administrator account must be confirmed in Supabase Auth.'
+        };
       }
     } catch (e: any) {
       console.error('Supabase settings update error:', e);
@@ -210,11 +218,11 @@ export async function savePage(page: PageContent): Promise<{ success: boolean; e
         console.warn('Supabase page check notice:', checkError.message);
       }
 
-      let saveError = null;
+      let saveError: string | null = null;
 
       if (existing) {
-        // Targeted UPDATE for existing page
-        const { error } = await supabase
+        // Targeted UPDATE for existing page with verified .select()
+        const { data, error } = await supabase
           .from('website_pages')
           .update({
             title: pageToSave.title,
@@ -226,11 +234,17 @@ export async function savePage(page: PageContent): Promise<{ success: boolean; e
             published: Boolean(pageToSave.published),
             updated_at: pageToSave.updated_at
           })
-          .eq('id', pageToSave.id);
-        saveError = error;
+          .eq('id', pageToSave.id)
+          .select();
+
+        if (error) {
+          saveError = error.message;
+        } else if (!data || data.length === 0) {
+          saveError = 'Supabase Row-Level Security blocked this page update (0 rows affected). Your administrator account (tripplethospital@gmail.com) email is not confirmed in Supabase Auth.';
+        }
       } else {
-        // Targeted INSERT for new page
-        const { error } = await supabase
+        // Targeted INSERT for new page with verified .select()
+        const { data, error } = await supabase
           .from('website_pages')
           .insert([{
             id: pageToSave.id,
@@ -242,13 +256,19 @@ export async function savePage(page: PageContent): Promise<{ success: boolean; e
             image_url: pageToSave.image_url || null,
             published: Boolean(pageToSave.published),
             updated_at: pageToSave.updated_at
-          }]);
-        saveError = error;
+          }])
+          .select();
+
+        if (error) {
+          saveError = error.message;
+        } else if (!data || data.length === 0) {
+          saveError = 'Supabase Row-Level Security blocked creating this page (0 rows affected). Your administrator account (tripplethospital@gmail.com) email is not confirmed in Supabase Auth.';
+        }
       }
 
       if (saveError) {
-        console.error('Supabase page save error:', saveError.message);
-        return { success: false, error: saveError.message };
+        console.error('Supabase page save error:', saveError);
+        return { success: false, error: saveError };
       }
     } catch (e: any) {
       console.error('Supabase page save exception:', e);
@@ -340,12 +360,20 @@ export async function getMedicalServices(): Promise<MedicalService[]> {
 export async function saveMedicalServices(services: MedicalService[]): Promise<{ success: boolean; error?: string }> {
   if (supabase) {
     try {
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('medical_services')
-        .upsert(services, { onConflict: 'id' });
+        .upsert(services, { onConflict: 'id' })
+        .select();
+
       if (error) {
         console.error('Supabase services sync error:', error.message);
         return { success: false, error: error.message };
+      }
+      if (services.length > 0 && (!data || data.length === 0)) {
+        return {
+          success: false,
+          error: 'Supabase Row-Level Security blocked saving medical services (0 rows affected). Please confirm your admin account in Supabase Auth.'
+        };
       }
     } catch (e: any) {
       console.error('Supabase services sync exception:', e);
@@ -407,12 +435,20 @@ export async function getHealthcareStaff(): Promise<HealthcareStaff[]> {
 export async function saveHealthcareStaff(staff: HealthcareStaff[]): Promise<{ success: boolean; error?: string }> {
   if (supabase) {
     try {
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('healthcare_team')
-        .upsert(staff, { onConflict: 'id' });
+        .upsert(staff, { onConflict: 'id' })
+        .select();
+
       if (error) {
         console.error('Supabase staff sync error:', error.message);
         return { success: false, error: error.message };
+      }
+      if (staff.length > 0 && (!data || data.length === 0)) {
+        return {
+          success: false,
+          error: 'Supabase Row-Level Security blocked saving healthcare team (0 rows affected). Please confirm your admin account in Supabase Auth.'
+        };
       }
     } catch (e: any) {
       console.error('Supabase staff sync exception:', e);
@@ -474,12 +510,20 @@ export async function getInsuranceProviders(): Promise<InsuranceProvider[]> {
 export async function saveInsuranceProviders(providers: InsuranceProvider[]): Promise<{ success: boolean; error?: string }> {
   if (supabase) {
     try {
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('insurance_providers')
-        .upsert(providers, { onConflict: 'id' });
+        .upsert(providers, { onConflict: 'id' })
+        .select();
+
       if (error) {
         console.error('Supabase insurance sync error:', error.message);
         return { success: false, error: error.message };
+      }
+      if (providers.length > 0 && (!data || data.length === 0)) {
+        return {
+          success: false,
+          error: 'Supabase Row-Level Security blocked saving insurance providers (0 rows affected). Please confirm your admin account in Supabase Auth.'
+        };
       }
     } catch (e: any) {
       console.error('Supabase insurance sync exception:', e);
@@ -914,6 +958,8 @@ export async function ensureAdminSupabaseSession(): Promise<{ success: boolean; 
     if (!authRes.error && authRes.data?.session) {
       return { success: true };
     }
+    const primaryError = authRes.error?.message;
+
     authRes = await supabase.auth.signInWithPassword({
       email: 'admin@tripplet.com',
       password: 'Tripplet123!'
@@ -921,7 +967,15 @@ export async function ensureAdminSupabaseSession(): Promise<{ success: boolean; 
     if (!authRes.error && authRes.data?.session) {
       return { success: true };
     }
-    return { success: false, error: authRes.error?.message || 'Could not establish Supabase Auth session.' };
+
+    const err = primaryError || authRes.error?.message || 'Could not establish Supabase Auth session.';
+    if (err.toLowerCase().includes('email not confirmed')) {
+      return {
+        success: false,
+        error: 'Admin account email is unconfirmed in Supabase Auth. Edits cannot be saved to the database until the email is confirmed. Run this in Supabase SQL Editor: UPDATE auth.users SET email_confirmed_at = now() WHERE email = \'tripplethospital@gmail.com\';'
+      };
+    }
+    return { success: false, error: err };
   } catch (e: any) {
     return { success: false, error: e?.message || 'Error communicating with Supabase Auth.' };
   }
@@ -984,7 +1038,12 @@ create trigger on_auth_user_created
   after insert or update on auth.users
   for each row execute procedure public.handle_admin_user_created();
 
--- Retroactively add existing admin users if user exists in auth.users
+-- Immediately confirm admin accounts in auth.users and populate admin_users table
+update auth.users
+set email_confirmed_at = now()
+where email in ('tripplethospital@gmail.com', 'admin@tripplet.com')
+  and email_confirmed_at is null;
+
 do $$
 begin
   if exists (select 1 from information_schema.tables where table_schema = 'auth' and table_name = 'users') then
@@ -1104,6 +1163,12 @@ drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert or update on auth.users
   for each row execute procedure public.handle_admin_user_created();
+
+-- Immediately confirm admin accounts in auth.users and populate admin_users table
+update auth.users
+set email_confirmed_at = now()
+where email in ('tripplethospital@gmail.com', 'admin@tripplet.com')
+  and email_confirmed_at is null;
 
 -- Seed admin_users from auth.users if admin user already exists
 do $$

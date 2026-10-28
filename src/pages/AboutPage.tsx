@@ -65,7 +65,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="lg:col-span-5">
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
               <img
-                src={settings.hero_image_url || "/assets/aistudio/Caring_Hands_in_a_Modern_Hospital_Ward_ebeb8456.png"}
+                src={aboutPage?.image_url || settings.hero_image_url || "/assets/aistudio/Caring_Hands_in_a_Modern_Hospital_Ward_ebeb8456.png"}
                 alt="Tripple-T Health Center medical care"
                 className="w-full h-auto object-cover max-h-[360px]"
               />
